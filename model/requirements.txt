@@ -1,0 +1,9 @@
+boto3
+sagemaker
+pandas
+matplotlib
+numpy
+flask
+gunicorn
+seaborn
+s3fs
