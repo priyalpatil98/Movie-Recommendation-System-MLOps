@@ -6,6 +6,7 @@ import pandas as pd
 import datetime as dt
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import TruncatedSVD
+from sklearn.metrics.pairwise import cosine_similarity, euclidean_distances, manhattan_distances, pairwise_distances
 
 if __name__ == "__main__":
     base_dir = "/opt/ml/processing"
@@ -73,3 +74,32 @@ if __name__ == "__main__":
     # train.to_csv(f"{base_dir}/train/train.csv", header=False, index=False)
     # validation.to_csv(f"{base_dir}/validation/validation.csv", header=False, index=False)
     # test.to_csv(f"{base_dir}/test/test.csv", header=False, index=False)
+    
+    
+similarity_cosine = cosine_similarity(reduced_data)
+similarity_euclidean = euclidean_distances(reduced_data)
+similarity_manhattan = manhattan_distances(reduced_data)
+similarity_pairwise = pairwise_distances(reduced_data, metric='jaccard')
+
+def recommendation(movie_title, num, sim_type):
+    id_of_movie = df[df['title']==movie_title].index[0]
+    if sim_type=="cosine":
+        print("Using similarity_cosine")
+        distances = similarity_cosine[id_of_movie]
+    elif sim_type=="euclidean":
+        print("Using similarity_euclidean")
+        distances = similarity_euclidean[id_of_movie]
+    elif sim_type=="manhattan":
+        print("Using similarity_manhattan")
+        distances = similarity_manhattan[id_of_movie]
+    elif sim_type=="pairwise":
+        print("Using similarity_pairwise")
+        distances = similarity_pairwise[id_of_movie]
+    movie_list = sorted(list(enumerate(distances)), reverse=True, key=lambda x:x[1])[1:num]
+    
+    title_list=[]
+    id_list=[]
+    for i in movie_list:
+        title_list=title_list+[df.iloc[i[0]].title]
+        id_list=id_list+[df.iloc[i[0]].id]
+    return(id_list, title_list)
