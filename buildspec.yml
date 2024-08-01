@@ -5,8 +5,7 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      # Install dependencies needed to Build Project
-      - echo Login in to Amazon Elastic Container Registry (ECR)...
+      - echo Login in to Amazon Elastic Container Registry...
       - aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 590183699263.dkr.ecr.eu-west-1.amazonaws.com
 
   build:
