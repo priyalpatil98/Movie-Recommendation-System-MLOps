@@ -10,7 +10,7 @@ phases:
 
   build:
     commands:
-      - echo "Starting Build Phase..."
+      - echo Starting Build Phase...
       - echo Build started on `date`
       - echo Building the Docker Image...
       # Command to build docker image
