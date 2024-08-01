@@ -1,0 +1,27 @@
+# Buildspec file for AWS CodeBuild
+
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      # Install dependencies needed to Build Project
+      - echo Login in to Amazon Elastic Container Registry (ECR)...
+      - aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 590183699263.dkr.ecr.eu-west-1.amazonaws.com
+
+  build:
+    commands:
+      - echo "Starting Build Phase..."
+      - echo Build started on `date`
+      - echo Building the Docker Image...
+      # Command to build docker image
+      - docker build -t mlops-container .
+      # Tagging image to push it to the repository
+      - docker tag mlops-container:latest 590183699263.dkr.ecr.eu-west-1.amazonaws.com/mlops-container:latest
+
+  post_build:
+    commands:
+      - echo Starting Post-Build Phase...
+      - echo Build completed on `date`
+      - echo Pushing the latest docker image
+      - docker push 590183699263.dkr.ecr.eu-west-1.amazonaws.com/mlops-container:latest

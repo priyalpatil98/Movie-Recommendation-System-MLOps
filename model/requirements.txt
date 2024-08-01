@@ -3,6 +3,7 @@ sagemaker
 pandas
 matplotlib
 numpy
+scikit-learn
 flask
 gunicorn
 seaborn
