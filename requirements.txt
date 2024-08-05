@@ -1,10 +1,8 @@
 boto3
 sagemaker
 pandas
-matplotlib
 numpy
 scikit-learn
 flask
-gunicorn
 seaborn
 s3fs
