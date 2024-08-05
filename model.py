@@ -76,7 +76,7 @@ vectorized_dataframe = pd.DataFrame(vectorized_data.toarray(), index=df['overvie
 svd = TruncatedSVD(n_components=3000)
 reduced_data = svd.fit_transform(vectorized_dataframe)
 df["overview"] = df["overview"].astype(object)
-reduced_data.tofile("final_data.csv")
+#reduced_data.tofile("final_data.csv")
 for i in range(len(df)):
     df["overview"].iloc[i]=reduced_data[i]
 df.head(5)

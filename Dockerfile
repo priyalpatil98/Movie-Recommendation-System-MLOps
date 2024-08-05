@@ -16,4 +16,5 @@ ENV AWS_DEFAULT_REGION=eu-west-1
 EXPOSE 5000
 
 # Run command on boot
-CMD ["python", "./app.py"]
+#CMD ["python", "./app.py"]
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
