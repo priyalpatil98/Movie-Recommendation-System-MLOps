@@ -24,3 +24,6 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the latest docker image
       - docker push 590183699263.dkr.ecr.eu-west-1.amazonaws.com/mlops-repository-aws:latest
+      
+artifacts:
+  files: imagedefinitions.json
