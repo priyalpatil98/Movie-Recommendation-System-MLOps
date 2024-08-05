@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.8-slim-buster
 
 WORKDIR /app
 
@@ -11,10 +11,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app
 
 ENV AWS_DEFAULT_REGION=eu-west-1
+ENV FLASK_APP=app.py
 
 # Port number the container should expose
 EXPOSE 5000
 
 # Run command on boot
 #CMD ["python", "./app.py"]
-CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+#CMD [ "python", "-m" , "flask", "run", "--host=0.0.0.0"]
+CMD ["flask", "run", "--host", "0.0.0.0"]
