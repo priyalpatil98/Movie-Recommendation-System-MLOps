@@ -13,7 +13,7 @@ phases:
       - echo Starting Build Phase...
       - echo Build started on `date`
       - echo Building the Docker Image...
-      # Command to build docker image
+      # Command to build docker i
       - docker build -t mlops-repository-aws .
       # Tagging image to push it to the repository
       - docker tag mlops-repository-aws:latest 590183699263.dkr.ecr.eu-west-1.amazonaws.com/mlops-repository-aws:latest
