@@ -6,3 +6,5 @@ scikit-learn
 flask
 seaborn
 s3fs
+pickle
+nltk
