@@ -51,13 +51,11 @@ s3transfer==0.10.2
 sagemaker==2.228.0
 schema==0.7.7
 scikit-learn==1.3.0
-scipy==1.13.1
 six==1.16.0
 smdebug-rulesconfig==1.0.1
 tblib==3.0.0
 threadpoolctl==3.5.0
 tqdm==4.66.5
-typing_extensions==4.12.2
 tzdata==2024.1
 urllib3==1.26.19
 Werkzeug==3.0.3
