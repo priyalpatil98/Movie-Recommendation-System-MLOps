@@ -32,7 +32,7 @@ multiprocess==0.70.16
 nltk==3.8.2
 numpy==1.24.3
 packaging==24.1
-pandas==2.2.2
+pandas==2.0.2
 pathos==0.3.2
 platformdirs==4.2.2
 pox==0.3.4
