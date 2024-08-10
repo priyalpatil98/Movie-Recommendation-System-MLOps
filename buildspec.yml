@@ -16,16 +16,16 @@ phases:
       # Command to build docker i
       - docker build -t mlops-repository-aws .
       # Tagging image to push it to the repository
-      - docker tag mlops-repository-aws:latest 590183699263.dkr.ecr.eu-west-1.amazonaws.com/mlops-repository-aws:new1
+      - docker tag mlops-repository-aws:latest 590183699263.dkr.ecr.eu-west-1.amazonaws.com/mlops-repository-aws:new2
 
   post_build:
     commands:
       - echo Starting Post-Build Phase...
       - echo Build completed on `date`
       - echo Pushing the latest docker image
-      - docker push 590183699263.dkr.ecr.eu-west-1.amazonaws.com/mlops-repository-aws:new1
+      - docker push 590183699263.dkr.ecr.eu-west-1.amazonaws.com/mlops-repository-aws:new2
       # Creating artifact for ECS deployment
-      - echo '[{"name":"flask-container","imageUri":"590183699263.dkr.ecr.eu-west-1.amazonaws.com/mlops-repository-aws:latest"}]' > imagedefinitions.json
+      - echo '[{"name":"flask-container","imageUri":"590183699263.dkr.ecr.eu-west-1.amazonaws.com/mlops-repository-aws:new2"}]' > imagedefinitions.json
       
 artifacts:
   files: imagedefinitions.json

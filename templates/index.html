@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendations</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Movie Recommendations</h1>
+        <form action="{{ url_for('content_recommendation') }}" method="get">
+            <div class="form-group">
+                <label for="movie_name">Enter a Movie Name</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Enter movie name" required>
+            </div>
+            <div class="form-group">
+                <label for="number_of_recommendation">Number of Recommendations</label>
+                <input type="number" class="form-control" id="number" name="number" placeholder="Number of recommendation" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Get Recommendations</button>
+        </form>
+    </div>
+</body>
+</html>
